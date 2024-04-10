@@ -60,11 +60,13 @@ jobs:
           push: true
           tags: russf19/is601-spring-semester-homework-8:latest
           platforms: linux/amd64,linux/arm64 # Multi-platform support
-          
+          cache-from: type=registry,ref=russf19/is601-spring-semester-homework-8:latest:cache
+          cache-to: type=inline,mode=max
+
       - name: Scan the Docker image
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'russf19/is601-spring-semester-homework-8:${{ github.sha }}'
+          image-ref: 'russf19/is601-spring-semester-homework-8:latest'
           format: 'table'
           exit-code: '1' # Fail the job if vulnerabilities are found
           ignore-unfixed: true

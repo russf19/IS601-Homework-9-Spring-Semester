@@ -60,8 +60,6 @@ jobs:
           push: true
           tags: russf19/is601-spring-semester-homework-8:latest
           platforms: linux/amd64,linux/arm64 # Multi-platform support
-          cache-from: type=registry,russf19/is601-spring-semester-homework-8:cache
-          cache-to: type=inline,mode=max
           
       - name: Scan the Docker image
         uses: aquasecurity/trivy-action@master
